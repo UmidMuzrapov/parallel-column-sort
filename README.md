@@ -11,20 +11,19 @@ Include columSort.h in the user program.
 ```
 Compile and run your program. This is an example Makefile:
 ```
-parsort:	threadColumnSort.o columnSortHelper.o  main.o
-	gcc -o parsort threadColumnSort.o columnSortHelper.o main.o -lm -lpthread
+
+parsort: threadColumnSort.o main.o
+	gcc -o parsort threadColumnSort.o main.o -lm -lpthread
 	
-main.o:	main.c columnSort.h columnSortHelper.h
+driverColumnSort.o: main.c columnSort.h 
 	gcc -c -O2 -std=c99 main.c
 
-columnSortHelper.o:	columnSortHelper.c columnSortHelper.h 
-	gcc -c -O2 -std=c99 columnSortHelper.c
-
-threadColumnSort.o:	threadColumnSort.c columnSortHelper.h
+threadColumnSort.o: threadColumnSort.c 
 	gcc -c -O2 -std=c99 threadColumnSort.c
 
 clean:
-	rm -f *.o parsort
+	rm -f *.o parsort 
+
 ```
 
 ## API
