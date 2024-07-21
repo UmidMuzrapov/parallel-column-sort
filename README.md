@@ -31,8 +31,13 @@ clean:
 void columnSort(int *A, int numThreads, int length, int width, double *elapsedTime)
 ```
 Input
+
 A: input array to sort
+
 numThreads: number of light-weight processes to use
+
 length: number of rows
+
 width: number of columns
+
 elapsedTime: used to pass back the elapsed time to do column-sort.
